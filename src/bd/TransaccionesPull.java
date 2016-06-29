@@ -16,7 +16,6 @@ public interface TransaccionesPull {
 	/**
 	 * Método para registrar un usuario en la BD 
 	 * @param usuarioModel modelo del usuario
-	 * @return String mensaje de estado del registro
 	 * @throws SQLException Excepción de transacción SQL
 	 */
 	public void registrarUsuario(UsuarioModel usuarioModel) throws SQLException;

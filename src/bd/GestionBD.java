@@ -41,7 +41,7 @@ public final class GestionBD implements TransaccionesPull{
 	
 	/**
 	 * Metodo para ejecutar una sentencia SQL
-	 * @param sentenciaBD Sentencia que será ejecutada
+	 * @param sentenciaSQL Sentencia que será ejecutada
 	 */
 	public void ejecutar(String sentenciaSQL){
 		try {
@@ -70,7 +70,7 @@ public final class GestionBD implements TransaccionesPull{
 	
 	/**
 	 * Método para testear conexión a BD
-	 * @param args
+	 * @param args metodo main
 	 */
 	public static void main(String[] args) {
 		GestionBD.getGestionBD();
