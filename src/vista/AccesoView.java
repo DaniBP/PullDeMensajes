@@ -7,9 +7,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.SwingConstants;
 
+import controlador.PullMensajesController;
 import controlador.RegistroController;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 
@@ -78,32 +80,18 @@ public class AccesoView extends JFrame{
 	public JButton getBtnRegistrarse() {
 		return btnRegistrarse;
 	}
-	
-	/**
-	 * @return the lblUsuario
-	 */
-	public JLabel getLblUsuario() {
-		return lblUsuario;
-	}
 
 	/**
-	 * @return the lblPassword
+	 * @return the txtUsuario
 	 */
-	public JLabel getLblPassword() {
-		return lblPassword;
-	}
-
-	/**
-	 * @return the textField
-	 */
-	public JTextField getTextField() {
+	public JTextField getTxtUsuario() {
 		return txtUsuario;
 	}
 
 	/**
-	 * @return the passwordField
+	 * @return the txtPassword
 	 */
-	public JPasswordField getPasswordField() {
+	public JPasswordField getTxtPassword() {
 		return txtPassword;
 	}
 
@@ -124,5 +112,47 @@ public class AccesoView extends JFrame{
 		RegistroController registroController = new RegistroController(registroView);
 		this.setVisible(false);
 		registroView.setVisible(true);
+	}
+	
+	/**
+	 * Método para mostrar mensaje en pantalla
+	 * @param mensaje generado
+	 */
+	public void mostrarMensaje(String mensaje){
+		JOptionPane.showMessageDialog(this, mensaje);
+	}
+	
+	/**
+	 * Método para mostrar alerta en pantalla
+	 * @param alerta generada
+	 */
+	public void mostrarAlerta(String alerta){
+		JOptionPane.showMessageDialog(this, alerta, "Alerta", JOptionPane.WARNING_MESSAGE);
+	}
+	
+	/**
+	 * Método para mostrar error en pantalla
+	 * @param error generado
+	 */
+	public void mostrarError(String error){
+		JOptionPane.showMessageDialog(this, error, "Error", JOptionPane.ERROR_MESSAGE);
+	}
+	
+	/**
+	 * Método para limpiar la ventana
+	 */
+	public void limpiarVentana(){
+		txtUsuario.setText(null);
+		txtPassword.setText(null);
+	}
+	
+	/**
+	 * Método para mostrar la ventana de mensajes
+	 */
+	public void mostrarPullMensajes(){
+		PullMensajesView pullMensajesView = new PullMensajesView();
+		PullMensajesController pullMensajesController = new PullMensajesController(pullMensajesView);
+		this.setVisible(false);
+		pullMensajesView.setVisible(true);
 	}
 }

@@ -10,6 +10,7 @@ import javax.swing.SwingConstants;
 import controlador.AccesoController;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 
@@ -38,7 +39,7 @@ public class RegistroView extends JFrame{
 	 */
 	public RegistroView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Acceso");
+		this.setTitle("Registro de usuarios");
 		this.setBounds(100, 100, 280, 200);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
@@ -75,7 +76,7 @@ public class RegistroView extends JFrame{
 	}
 
 	/**
-	 * @return the btnAcceder
+	 * @return the btnRegresar
 	 */
 	public JButton getBtnRegresar() {
 		return btnRegresar;
@@ -87,26 +88,19 @@ public class RegistroView extends JFrame{
 	public JButton getBtnRegistrarse() {
 		return btnRegistrarse;
 	}
-	
+
 	/**
-	 * @return the lblUsuario
+	 * @return the txtUsuario
 	 */
-	public JLabel getLblUsuario() {
-		return lblUsuario;
+	public JTextField getTxtUsuario() {
+		return txtUsuario;
 	}
 
 	/**
-	 * @return the lblPassword
+	 * @return the txtPassword
 	 */
-	public JLabel getLblPassword() {
-		return lblPassword;
-	}
-
-	/**
-	 * @return the lblPassword2
-	 */
-	public JLabel getLblPassword2() {
-		return lblPassword2;
+	public JPasswordField getTxtPassword() {
+		return txtPassword;
 	}
 
 	/**
@@ -114,20 +108,6 @@ public class RegistroView extends JFrame{
 	 */
 	public JPasswordField getTxtPassword2() {
 		return txtPassword2;
-	}
-
-	/**
-	 * @return the textField
-	 */
-	public JTextField getTextField() {
-		return txtUsuario;
-	}
-
-	/**
-	 * @return the passwordField
-	 */
-	public JPasswordField getPasswordField() {
-		return txtPassword;
 	}
 
 	/**
@@ -147,5 +127,38 @@ public class RegistroView extends JFrame{
 		AccesoController accesoController = new AccesoController(accesoView);
 		this.setVisible(false);
 		accesoView.setVisible(true);
+	}
+	
+	/**
+	 * Método para mostrar mensaje en pantalla
+	 * @param mensaje generado
+	 */
+	public void mostrarMensaje(String mensaje){
+		JOptionPane.showMessageDialog(this, mensaje);
+	}
+	
+	/**
+	 * Método para mostrar alerta en pantalla
+	 * @param alerta generada
+	 */
+	public void mostrarAlerta(String alerta){
+		JOptionPane.showMessageDialog(this, alerta, "Alerta", JOptionPane.WARNING_MESSAGE);
+	}
+	
+	/**
+	 * Método para mostrar error en pantalla
+	 * @param error generado
+	 */
+	public void mostrarError(String error){
+		JOptionPane.showMessageDialog(this, error, "Error", JOptionPane.ERROR_MESSAGE);
+	}
+	
+	/**
+	 * Método para limpiar ventana
+	 */
+	public void limpiarVentana(){
+		txtUsuario.setText(null);
+		txtPassword.setText(null);
+		txtPassword2.setText(null);
 	}
 }
